@@ -3,26 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package conexao;
-import java.sql.*;
-public class Conexao {
 
-    /**
-     *
-     * @return
-     */
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+/**
+ *
+ * @author laboratorio
+ */
+public class Conexao {
     public Connection getConexao(){
         try{
-            
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/ESCOLA?useTimezone=true&serverTimezone=UTC",
-                    "root", "laboratorio");
+            "jdbc:mysql://localhost:3306/escola?useTimezone=true&serverTimezone=UTC", "root", "laboratorio");
             System.out.println("Conexao realizada com sucesso!");
             return conn;
         }
-            catch(SQLException e){
-                    System.out.println("Erro ao conectar no BD" +e.getMessage());
-                    return null;
-                    }
+        catch (Exception e){
+            System.out.println("Erro ao conectar no BD " + e.getMessage());
+            return null;
         }
-    } 
-
+    }
+}
